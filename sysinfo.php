@@ -58,7 +58,7 @@ if (file_get_contents('name')) {
     }
     ?>
 </p>
-<p align="center">
+<p align="center">Views: 
     <?php
     foreach ($views as $key=>$value) {
         $basename = basename($value, '.app');
@@ -68,7 +68,7 @@ if (file_get_contents('name')) {
     }
     ?>
 </p>
-<p align="center">
+<p align="center">Packages: 
     <?php
     foreach ($packages as $key=>$value) {
         $basename = basename($value, '.pkg');
@@ -80,7 +80,7 @@ if (file_get_contents('name')) {
     }
     ?>
 </p>
-<p align="center">
+<p align="center">Resources: 
     <?php
     foreach ($resources as $key=>$value) {
         $basename = basename($value, '.pkg');
