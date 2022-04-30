@@ -33,8 +33,7 @@ $resources = str_replace($dir.'/','',(glob($dir.'/*.res')));
 <title>Web System Structure</title>
 <link rel="shortcut icon" href="favicon.png?rev=<?=time();?>" type="image/x-icon">
 <link href="system.css?rev=<?=time();?>" rel="stylesheet">
-<script src="jquery.js?rev=<?=time();?>"></script>
-<script src="base.js?rev=<?=time();?>"></script>
+<?php include 'base.incl.php'; ?>
 </head>
 <body>
 <div class='top'>
