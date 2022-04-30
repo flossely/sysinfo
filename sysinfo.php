@@ -41,7 +41,7 @@ $resources = str_replace($dir.'/','',(glob($dir.'/*.res')));
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<title>Web System Structure</title>
+<title>Web System Info</title>
 <link rel="shortcut icon" href="sys.info.png?rev=<?=time();?>" type="image/x-icon">
 <link href="system.css?rev=<?=time();?>" rel="stylesheet">
 <?php include 'base.incl.php'; ?>
