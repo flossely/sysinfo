@@ -34,6 +34,7 @@ $resources = str_replace($dir.'/','',(glob($dir.'/*.res')));
 <link rel="shortcut icon" href="sys.settings.png?rev=<?=time();?>" type="image/x-icon">
 <link href="system.css?rev=<?=time();?>" rel="stylesheet">
 <?php include 'base.incl.php'; ?>
+<?php include 'time.incl.php'; ?>
 </head>
 <body>
 <div class='top'>
@@ -42,6 +43,12 @@ $resources = str_replace($dir.'/','',(glob($dir.'/*.res')));
 </p>
 </div>
 <div class='panel'>
+<p align="center">
+    Client Time: <span id='clientTime'></span>
+</p>
+<p align="center">
+    Server Time: <span id='serverTime'></span>
+</p>
 <p align="center">
     <?php elem('mod', 'Models', 'basename'); ?>
 </p>
