@@ -1,5 +1,16 @@
 <?php
 
+if (file_get_contents('name')) {
+    $projectTitleFile = file_get_contents('name');
+    if ($projectTitleFile != '') {
+        $projectTitle = $projectTitleFile;
+    } else {
+        $projectTitle = 'HSIS';
+    }
+} else {
+    $projectTitle = 'HSIS';
+}
+
 function elem($ext, $title, $method) {
     $dir = '.';
     echo $title.': ';
@@ -43,6 +54,9 @@ $resources = str_replace($dir.'/','',(glob($dir.'/*.res')));
 </p>
 </div>
 <div class='panel'>
+<p align="center">
+    System Name: <?=$projectTitle;?>
+</p>
 <p align="center">
     Client Time: <span id='clienttime'></span>
 </p>
