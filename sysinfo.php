@@ -1,5 +1,10 @@
 <?php
-
+$dir = '.';
+$models = str_replace($dir.'/','',(glob($dir.'/*.mod')));
+$controllers = str_replace($dir.'/','',(glob($dir.'/*.ctl')));
+$views = str_replace($dir.'/','',(glob($dir.'/*.app')));
+$packages = str_replace($dir.'/','',(glob($dir.'/*.pkg')));
+$resources = str_replace($dir.'/','',(glob($dir.'/*.res')));
 if (file_get_contents('name')) {
     $projectTitleFile = file_get_contents('name');
     if ($projectTitleFile != '') {
@@ -10,32 +15,6 @@ if (file_get_contents('name')) {
 } else {
     $projectTitle = basename(__DIR__);
 }
-
-function elem($ext, $title, $method) {
-    $dir = '.';
-    echo $title.': ';
-    $elem = str_replace($dir.'/','',(glob($dir.'/*.'.$ext)));
-    foreach ($elem as $key=>$val) {
-        if ($method == 'basename') {
-            $base = basename($val, '.'.$ext);
-            echo ucfirst($base).'; ';
-        } elseif ($method == 'content') {
-            $open = file_get_contents($val);
-            echo $open.'; ';
-        } elseif ($method == 'controller') {
-            $base = basename($val, '.'.$ext);
-            echo ucfirst($base).'Controller; ';
-        }
-    }
-}
-
-$dir = '.';
-$models = str_replace($dir.'/','',(glob($dir.'/*.mod')));
-$controllers = str_replace($dir.'/','',(glob($dir.'/*.ctl')));
-$views = str_replace($dir.'/','',(glob($dir.'/*.app')));
-$packages = str_replace($dir.'/','',(glob($dir.'/*.pkg')));
-$resources = str_replace($dir.'/','',(glob($dir.'/*.res')));
-
 ?>
 <html>
 <head>
@@ -63,20 +42,52 @@ $resources = str_replace($dir.'/','',(glob($dir.'/*.res')));
 <p align="center">
     Server Time: <span id='servertime'></span>
 </p>
-<p align="center">
-    <?php elem('mod', 'Models', 'basename'); ?>
+<p align="center">Models: 
+    <?php
+    foreach ($models as $key=>$value) {
+        $basename = basename($value, '.mod');
+        echo ucfirst($basename).'; ';
+    }
+    ?>
+</p>
+<p align="center">Controllers: 
+    <?php
+    foreach ($controllers as $key=>$value) {
+        $basename = basename($value, '.ctl');
+        echo ucfirst($basename).'Controller; ';
+    }
+    ?>
 </p>
 <p align="center">
-    <?php elem('ctl', 'Controllers', 'controller'); ?>
+    <?php
+    foreach ($views as $key=>$value) {
+        $basename = basename($value, '.app');
+        $openfile = file_get_contents($value);
+        $opendiv = explode('|[1]|', $openfile);
+        echo $opendiv[0].'; ';
+    }
+    ?>
 </p>
 <p align="center">
-    <?php elem('app', 'Views', 'basename'); ?>
+    <?php
+    foreach ($packages as $key=>$value) {
+        $basename = basename($value, '.pkg');
+        $openfile = file_get_contents($value);
+        $opendiv = explode('|[1]|', $openfile);
+        $openhead = $opendiv[0];
+        $openparam = explode('|[2]|', $openhead);
+        echo $openparam[0].'/'.$basename.'('.$openparam[3].'); ';
+    }
+    ?>
 </p>
 <p align="center">
-    <?php elem('pkg', 'Packages', 'basename'); ?>
-</p>
-<p align="center">
-    <?php elem('res', 'Resources', 'content'); ?>
+    <?php
+    foreach ($resources as $key=>$value) {
+        $basename = basename($value, '.pkg');
+        $openfile = file_get_contents($value);
+        echo $openfile.'; ';
+    }
+    ?>
 </p>
 </div>
 </body>
