@@ -44,10 +44,10 @@ $resources = str_replace($dir.'/','',(glob($dir.'/*.res')));
 </div>
 <div class='panel'>
 <p align="center">
-    Client Time: <span id='clientTime'></span>
+    Client Time: <span id='clienttime'></span>
 </p>
 <p align="center">
-    Server Time: <span id='serverTime'></span>
+    Server Time: <span id='servertime'></span>
 </p>
 <p align="center">
     <?php elem('mod', 'Models', 'basename'); ?>
