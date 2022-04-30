@@ -55,7 +55,7 @@ $resources = str_replace($dir.'/','',(glob($dir.'/*.res')));
 </div>
 <div class='panel'>
 <p align="center">
-    System Name: <?=$projectTitle;?>
+    System Name: <?=ucfirst($projectTitle);?>
 </p>
 <p align="center">
     Client Time: <span id='clienttime'></span>
