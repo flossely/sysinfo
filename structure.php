@@ -5,10 +5,10 @@ if (file_get_contents('name')) {
     if ($projectTitleFile != '') {
         $projectTitle = $projectTitleFile;
     } else {
-        $projectTitle = 'HSIS';
+        $projectTitle = basename(__DIR__);
     }
 } else {
-    $projectTitle = 'HSIS';
+    $projectTitle = basename(__DIR__);
 }
 
 function elem($ext, $title, $method) {
