@@ -1,1 +1,1 @@
-Structure|[1]|sys.eval.png|[1]|window.location.href='structure.php';
+Structure|[1]|sys.settings.png|[1]|window.location.href='structure.php';
