@@ -37,10 +37,7 @@ if (file_get_contents('name')) {
     System Name: <?=ucfirst($projectTitle);?>
 </p>
 <p align="center">
-    Client Time: <span id='clienttime'></span>
-</p>
-<p align="center">
-    Server Time: <span id='servertime'></span>
+    System Time: <span id='servertime'></span>
 </p>
 <p align="center">Models: 
     <?php
