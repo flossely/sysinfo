@@ -1,5 +1,6 @@
 <?php
 $dir = '.';
+include 'syspkg.php';
 $models = str_replace($dir.'/','',(glob($dir.'/*.mod')));
 $controllers = str_replace($dir.'/','',(glob($dir.'/*.ctl')));
 $views = str_replace($dir.'/','',(glob($dir.'/*.app')));
@@ -34,7 +35,10 @@ if (file_get_contents('name')) {
 </div>
 <div class='panel'>
 <p align="center">
-    System Name: <?=ucfirst($projectTitle);?>
+    Website Name: <?=ucfirst($projectTitle);?>
+</p>
+<p align="center">
+    System Info: <?=$syspkg['title'].' ('.$syspkg['type'].')';?>
 </p>
 <p align="center">
     System Time: <span id='servertime'></span>
