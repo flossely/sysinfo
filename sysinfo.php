@@ -41,7 +41,7 @@ if (file_get_contents('name')) {
     System Info: <?=$syspkg['title'].' ('.$syspkg['type'].')';?>
 </p>
 <p align="center">
-    System Time: <span id='ct'></span>
+    System Time: <span id='time'></span>
 </p>
 <p align="center">Models: 
     <?php
