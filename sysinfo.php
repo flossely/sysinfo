@@ -1,21 +1,11 @@
 <?php
 $dir = '.';
-include 'syspkg.php';
+include 'system.php';
 $models = str_replace($dir.'/','',(glob($dir.'/*.mod')));
 $controllers = str_replace($dir.'/','',(glob($dir.'/*.ctl')));
 $views = str_replace($dir.'/','',(glob($dir.'/*.app')));
 $packages = str_replace($dir.'/','',(glob($dir.'/*.pkg')));
 $resources = str_replace($dir.'/','',(glob($dir.'/*.res')));
-if (file_get_contents('name')) {
-    $projectTitleFile = file_get_contents('name');
-    if ($projectTitleFile != '') {
-        $projectTitle = $projectTitleFile;
-    } else {
-        $projectTitle = basename(__DIR__);
-    }
-} else {
-    $projectTitle = basename(__DIR__);
-}
 ?>
 <html>
 <head>
@@ -35,7 +25,7 @@ if (file_get_contents('name')) {
 </div>
 <div class='panel'>
 <p align="center">
-    Website Name: <?=ucfirst($projectTitle);?>
+    Website Name: <?=ucfirst($websiteTitle);?>
 </p>
 <p align="center">
     System Info: <?=$syspkg['title'].' ('.$syspkg['type'].')';?>
